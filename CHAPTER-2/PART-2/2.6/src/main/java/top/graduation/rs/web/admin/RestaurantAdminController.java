@@ -53,7 +53,6 @@ public class RestaurantAdminController {
 	@JsonView(View.Summary.class)
     @GetMapping
     @Operation(summary = "Get all restaurants details")
-    @Parameter(required = false, description = "No parameters needed", schema = @Schema(implementation = User.class))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Retrieval succeeded",  content = { @Content(mediaType = "application/json",  schema = @Schema(implementation = Restaurant.class)) }),
             @ApiResponse(responseCode = "403", description = "Not authorized",  content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorInfo.class))),
