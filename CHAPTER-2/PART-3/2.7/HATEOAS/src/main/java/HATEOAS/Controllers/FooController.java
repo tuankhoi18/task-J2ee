@@ -29,7 +29,6 @@ public class FooController {
     @GetMapping(value = "foos/{id}")
     public Foo findById(@PathVariable("id") Long id, HttpServletResponse response) {
         Foo resourceById = Preconditions.checkNotNull(service.findOne(id));
-
         eventPublisher.publishEvent(new SingleResourceRetrieved(this, response));
         return resourceById;
     }
