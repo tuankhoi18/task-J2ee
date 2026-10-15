@@ -26,7 +26,7 @@ public class FooController {
     @Autowired
     private IFooService service;
 
-    @GetMapping(value = "foos/{id}")
+    @GetMapping(value = "/{id}")
     public Foo findById(@PathVariable("id") Long id, HttpServletResponse response) {
         Foo resourceById = Preconditions.checkNotNull(service.findOne(id));
         eventPublisher.publishEvent(new SingleResourceRetrieved(this, response));
